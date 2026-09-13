@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-light: #94a3b8;
+  --color-accent-blue: #3b82f6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-blue-light: #eff6ff;
+  --color-accent-purple-light: #f5f3ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-br from-accent-blue to-accent-purple bg-clip-text text-transparent;
+  }
+  .icon-gradient {
+    @apply bg-gradient-to-br from-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.1)] text-text-primary;
+  }
+  .hero-bg-blob-1 {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+  .hero-bg-blob-2 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+  .cta-bg-gradient {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-6xl mx-auto px-6;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-full gap-2 text-base transition-all duration-150;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-br from-accent-blue to-accent-purple text-white shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.23)] hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-text-primary border border-slate-200 hover:bg-bg-secondary hover:-translate-y-0.5;
+  }
+}
